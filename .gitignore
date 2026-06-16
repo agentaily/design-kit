@@ -1,0 +1,16 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+.turbo/
+coverage/
+*.tsbuildinfo
+.env
+.env.*
+
+# fleet/claude 运行时(不入库)
+.claude/worktrees/
+.claude/*.lock
+.claude/agent-memory/*/!(.gitkeep)
+.claude/worktrees/
+.claude/scheduled_tasks.lock
