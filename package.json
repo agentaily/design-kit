@@ -1,6 +1,6 @@
 {
   "name": "@agentaily/design-kit",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Claude-Design-only browser mock backend — patch window.fetch + Tweaks-driven scenarios for high-fidelity SPA prototypes (CDN-imported into Claude Design).",
   "type": "module",
   "license": "MIT",
