@@ -24,6 +24,15 @@ installMockBackend({ scenario: "loggedOut" });
 - **Scope**: generic mock engine + shared **auth** handlers (`/api/auth/me|login|register|verify-email|password-reset`); product-specific routes registered by each design project.
 - **Contract**: MVP hand-mirrors the real Worker's auth routes (mark "TODO: extract `@agentaily/api-contract`" so the real Worker + design-kit share it and don't drift).
 
+## Build & develop
+
+Framework-agnostic TypeScript, built with **tsup** to dual-format `dist/` (ESM + CJS + `.d.ts`); `files:["dist"]`, and the CDN (esm.sh) serves the dist ESM. No React — it's a pure browser logic library.
+
+```bash
+npm run typecheck && npm test   # done-gate (vitest + jsdom)
+npm run build                   # emit dist (ESM + CJS + .d.ts)
+```
+
 ## Status
 
-Scaffolding. Validated via spike (2026-06-16, form-design auth project: `_spike-auth-guard.card.html` + `_mock-backend.js` — flipping a Tweak made the real `fetch('/api/auth/me')` guard redirect vs. allow). Implementation lands via fleet PR. Usage skill: `skill/SKILL.md` (once published).
+Implemented (first release prepared via fleet PR). `installMockBackend` + scenario engine + in-memory auth handlers, with vitest (jsdom) coverage. Validated via spike (2026-06-16, form-design auth project: `_spike-auth-guard.card.html` + `_mock-backend.js` — flipping a Tweak made the real `fetch('/api/auth/me')` guard redirect vs. allow). Usage skill: `skill/SKILL.md` (also symlinked to `~/.claude/skills/agentaily-design-kit`). First publish (0.1.0) ships via the changesets CI release chain.
